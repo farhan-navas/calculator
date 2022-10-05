@@ -1,5 +1,41 @@
-
+:root {
+    font-family: 'Roboto Slab', serif;
+}
 
 body {
-    font-family: 'Roboto Slab', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+    background-image: url(./images/wallpaper.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 10px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+.calculator > div {
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.calculator > .results {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: end;
+}
+
+.calculator > .equal {
+    grid-column-start: 3;
+    grid-column-end: 5;
 }
