@@ -9,12 +9,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="calculator">
-        <div class="screen"></div>
+        <div class="screen">
+            <div class="prevNumber"></div>
+            <div class="currNumber"></div>
+        </div>
         <div class="reset-all" data-type="reset-all">AC</div>
         <div class="clear" data-type="clear">C</div>
         <div class="modulus" data-type="operator">%</div>
@@ -33,7 +36,7 @@
         <div class="multiply" data-type="operator">x</div>
         <div class="zero" data-type="number">0</div>
         <div class="decimal" data-type="decimal">.</div>
-        <div class="equal" data-type="equals">=</div>
+        <div class="equal">=</div>
     </div>
 
 </body>

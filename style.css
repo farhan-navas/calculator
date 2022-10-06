@@ -1,5 +1,6 @@
 :root {
     font-family: 'Roboto Slab', serif;
+    font-weight: 400;
 }
 
 body {
@@ -34,7 +35,25 @@ body {
 .calculator > .screen {
     grid-column-start: 1;
     grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border-radius: 5%;
+
+    display: grid;
+}
+
+.calculator > .screen > .prevNumber {
+    font-weight: 200;
     text-align: end;
+    vertical-align: top;
+    max-height: 30px;
+}
+
+.calculator > .screen > .currNumber {
+    text-align: end;
+    font-weight: 700;
+    max-height: 1px;
+    font-size: x-large;
 }
 
 .calculator > .equal {
