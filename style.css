@@ -18,7 +18,7 @@ body {
     grid-template-rows: repeat(6, 50px);
     gap: 10px;
     background-color: black;
-    padding: 10px;
+    padding: 20px;
     border-radius: 5%;
     box-shadow: 3px 3px 20px black;
 }
@@ -31,7 +31,7 @@ body {
     box-shadow: 2px 2px 3px grey;
 }
 
-.calculator > .results {
+.calculator > .screen {
     grid-column-start: 1;
     grid-column-end: -1;
     text-align: end;
