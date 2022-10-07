@@ -10,12 +10,20 @@ const numbers = document.body.querySelectorAll("[data-type='number']")
 const operators = document.body.querySelectorAll("[data-type='operator']")
 const equal = document.body.querySelector(".equal")
 const resetAll = document.body.querySelector(".reset-all")
+const decimal = document.body.querySelector(".decimal")
 
 let prevNumber = ""
 let currNumber = ""
 let operator = ""
 currDisplayNumber.textContent = 0
 
+//this function will add a decimal place to the number
+decimal.addEventListener('click', function() {
+    currNumber += "."
+    currDisplayNumber.textContent = currNumber
+})
+
+// add a function that will reset the whole screen as well as all the variables
 resetAll.addEventListener('click', function() {
     prevNumber = ""
     currNumber = ""
@@ -24,12 +32,14 @@ resetAll.addEventListener('click', function() {
     currDisplayNumber.textContent = 0
 })
 
+// loop that calls handleNumber() whenever a number button is pressed on the keypad
 for (let number of numbers) {
     number.addEventListener('click', function(e) {
         handleNumber(e.target.textContent)
     })
 }
 
+// function that will add number to variable and display onto the screen
 function handleNumber(number) {
     if (currNumber.length <= 10 || currNumber == "" ) {
         currNumber += number
@@ -45,6 +55,7 @@ for (let operator of operators) {
     })
 }
 
+//function that will use the given operator and continue to form the entire equation
 function handleOperator(op) {
     if (prevNumber == "") {
         prevNumber = 0
@@ -108,6 +119,7 @@ function operate() {
     displayResults()
 }
 
+//this function carries on from operate() and will display final results on the screen
 function displayResults() {
     if (!currNumber == "") {
         prevDisplayNumber.textContent += " " + currNumber + " ="
