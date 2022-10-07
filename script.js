@@ -14,12 +14,14 @@ const resetAll = document.body.querySelector(".reset-all")
 let prevNumber = ""
 let currNumber = ""
 let operator = ""
+currDisplayNumber.textContent = 0
 
 resetAll.addEventListener('click', function() {
     prevNumber = ""
     currNumber = ""
+    results = ""
     prevDisplayNumber.textContent = prevNumber
-    currDisplayNumber.textContent = currNumber
+    currDisplayNumber.textContent = 0
 })
 
 for (let number of numbers) {
@@ -44,6 +46,9 @@ for (let operator of operators) {
 }
 
 function handleOperator(op) {
+    if (prevNumber == "") {
+        prevNumber = 0
+    }
     if (!results == "") {
         operator = op.toString()
         prevNumber = results
@@ -54,6 +59,9 @@ function handleOperator(op) {
         console.log(`results: ${results}`)
         console.log(`prevnumber: ${prevNumber}`)
         console.log(`currnumber: ${currNumber}`)
+    } else if (!prevNumber == "" && !currNumber == 0) {
+        operate()
+        handleOperator(op)
     } else {
         operator = op.toString()
         prevNumber = currNumber
