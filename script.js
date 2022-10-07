@@ -34,8 +34,6 @@ function handleNumber(number) {
         currDisplayNumber.textContent = currNumber
     } else if (currNumber == ""){
         currNumber = number
-    } else {
-        currNumber = currNumber
     }
 }
 
@@ -53,40 +51,41 @@ function handleOperator(op) {
         prevDisplayNumber.textContent = prevNumber + " " + operator
         currNumber = ""
         currDisplayNumber.textContent = currNumber
+        console.log(`results: ${results}`)
+        console.log(`prevnumber: ${prevNumber}`)
+        console.log(`currnumber: ${currNumber}`)
     } else {
         operator = op.toString()
         prevNumber = currNumber
         prevDisplayNumber.textContent = currNumber + " " + operator
         currNumber = ""
         currDisplayNumber.textContent = currNumber
+        console.log(`results: ${results}`)
+        console.log(`prevnumber: ${prevNumber}`)
+        console.log(`currnumber: ${currNumber}`)
     }
 }
-
 
 equal.addEventListener('click', operate)
 
 // For this operate function, have to make sure operator input is a string!
 function operate() {
+    results = ""
     prevNumber = Number(prevNumber)
     currNumber = Number(currNumber)
     operator = operator.toString()
-    console.log("working here")
     if (!prevNumber == "" || !currNumber == "") {
-        console.log("workin")
         switch(operator) {
             case 'add':
             case '+':
                 results = add(prevNumber, currNumber)
-                console.log(prevNumber)
-                console.log(currNumber)
-                console.log(results)
                 break
             case 'subtract':
             case '-':
                 results = subtract(prevNumber, currNumber) 
                 break
             case 'multiply':
-            case '*':
+            case 'x':
                 results = multiply(prevNumber, currNumber)  
                 break
             case 'divide':
@@ -95,10 +94,16 @@ function operate() {
                 break
         }
     }
+    console.log(`results: ${results}`)
+    console.log(`prevnumber: ${prevNumber}`)
+    console.log(`currnumber: ${currNumber}`)
     displayResults()
 }
 
 function displayResults() {
-    prevDisplayNumber.textContent += " " + currNumber
-    currDisplayNumber.textContent = results 
+    if (!currNumber == "") {
+        prevDisplayNumber.textContent += " " + currNumber + " ="
+        currDisplayNumber.textContent = results
+        currNumber = ""
+    }
 }
