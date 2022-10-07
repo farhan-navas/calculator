@@ -3,3 +3,4 @@ Basic calculator webpage programmed according to requirements on TheOdinProject.
 2) THE HARDER PART: Add keyboard support. One problem that I might encounter is for multiplication whether use x or * so that one have to take note
 
 Link to demo is here! 
+(Figue out how to do this as well)
