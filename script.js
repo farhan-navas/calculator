@@ -10,6 +10,7 @@ const numbers = document.body.querySelectorAll("[data-type='number']")
 const operators = document.body.querySelectorAll("[data-type='operator']")
 const equal = document.body.querySelector(".equal")
 const resetAll = document.body.querySelector(".reset-all")
+const clear = document.body.querySelector(".clear")
 const decimal = document.body.querySelector(".decimal")
 
 let prevNumber = ""
@@ -21,6 +22,18 @@ currDisplayNumber.textContent = 0
 decimal.addEventListener('click', function() {
     currNumber += "."
     currDisplayNumber.textContent = currNumber
+})
+
+//if you press clear it will help to delete last digit of currNumber
+clear.addEventListener('click', function() {
+    if (currNumber.length > 0) {
+        console.log(currNumber)
+        let temp = currNumber.toString()
+        currNumber = temp.substring(0, temp.length - 1)
+        currDisplayNumber.textContent = currNumber
+        console.log("workss!")
+        console.log(currNumber)
+    }
 })
 
 // add a function that will reset the whole screen as well as all the variables
@@ -41,7 +54,7 @@ for (let number of numbers) {
 
 // function that will add number to variable and display onto the screen
 function handleNumber(number) {
-    if (currNumber.length <= 10 || currNumber == "" ) {
+    if (currNumber.length <= 10 || currNumber == "") {
         currNumber += number
         currDisplayNumber.textContent = currNumber
     } else if (currNumber == ""){
@@ -118,9 +131,6 @@ function operate() {
                 break
         }
     }
-    console.log(`results: ${results}`)
-    console.log(`prevnumber: ${prevNumber}`)
-    console.log(`currnumber: ${currNumber}`)
     displayResults()
 }
 
@@ -131,5 +141,8 @@ function displayResults() {
         prevDisplayNumber.textContent += " " + currNumber + " ="
         currDisplayNumber.textContent = results
         currNumber = ""
+        prevNumber = results
+        console.log(`results: ${results}`)
+        console.log(`prevnumber: ${prevNumber}`)
     }
 }
