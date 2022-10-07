@@ -109,7 +109,12 @@ function operate() {
                 break
             case 'divide':
             case '/':
-                results = divide(prevNumber, currNumber) 
+                if (currNumber == 0) {
+                    results = ""
+                    alert("Number cannot be divided by 0!")
+                } else {
+                    results = divide(prevNumber, currNumber) 
+                }
                 break
         }
     }
@@ -121,6 +126,7 @@ function operate() {
 
 //this function carries on from operate() and will display final results on the screen
 function displayResults() {
+    // this line prevents spamming of equal button! it is necessary!
     if (!currNumber == "") {
         prevDisplayNumber.textContent += " " + currNumber + " ="
         currDisplayNumber.textContent = results
